@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Technical Support - Learn Japanese">
+  <title>Technical Support - Learn Japanese</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      padding: 20px;
+    }
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+      overflow: hidden;
+    }
+    .header {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 40px 30px;
+      text-align: center;
+    }
+    .header h1 {
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
+    .header p {
+      opacity: 0.9;
+      font-size: 16px;
+    }
+    .content {
+      padding: 30px;
+    }
+    .section {
+      margin-bottom: 30px;
+    }
+    .section h2 {
+      color: #667eea;
+      font-size: 20px;
+      margin-bottom: 15px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid #667eea;
+    }
+    .section p {
+      margin-bottom: 12px;
+    }
+    .faq-item {
+      background: #f8f9fa;
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 15px;
+    }
+    .faq-item h3 {
+      color: #667eea;
+      margin-bottom: 10px;
+      font-size: 16px;
+    }
+    .faq-item p {
+      margin-bottom: 0;
+      color: #555;
+    }
+    .contact-card {
+      background: #f8f9fa;
+      border-radius: 12px;
+      padding: 20px;
+      margin-top: 15px;
+    }
+    .contact-card h3 {
+      color: #667eea;
+      margin-bottom: 10px;
+    }
+    .contact-card p {
+      margin-bottom: 8px;
+    }
+    .contact-card strong {
+      color: #333;
+    }
+    .app-info {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 15px;
+      margin-bottom: 20px;
+    }
+    .app-icon {
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 24px;
+      font-weight: bold;
+    }
+    .version-info {
+      background: #e8edff;
+      border-radius: 8px;
+      padding: 15px;
+      margin: 15px 0;
+      text-align: center;
+    }
+    .version-info code {
+      background: #fff;
+      padding: 4px 12px;
+      border-radius: 4px;
+      font-size: 14px;
+    }
+    .lang-selector {
+      text-align: center;
+      padding: 15px;
+      background: #f0f0f0;
+      font-size: 14px;
+    }
+    .lang-selector a {
+      color: #667eea;
+      text-decoration: none;
+      margin: 0 5px;
+    }
+    .lang-selector a:hover {
+      text-decoration: underline;
+    }
+    @media (max-width: 600px) {
+      body {
+        padding: 10px;
+      }
+      .header {
+        padding: 30px 20px;
+      }
+      .header h1 {
+        font-size: 22px;
+      }
+      .content {
+        padding: 20px;
+      }
+      .section h2 {
+        font-size: 18px;
+      }
+      .lang-selector a {
+        display: inline-block;
+        margin: 3px 5px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div class="app-info">
+        <div class="app-icon">日</div>
+        <div>
+          <h1>Learn Japanese</h1>
+          <p id="header-subtitle">Technical Support Center</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="lang-selector">
+      <span id="lang-label">Language:</span>
+      <a href="?lang=en">English</a>
+      <a href="?lang=zh-Hans">简体中文</a>
+      <a href="?lang=zh-Hant">繁體中文</a>
+      <a href="?lang=ja">日本語</a>
+      <a href="?lang=ko">한국어</a>
+      <a href="?lang=es">Español</a>
+      <a href="?lang=fr">Français</a>
+      <a href="?lang=pt">Português</a>
+      <a href="?lang=th">ภาษาไทย</a>
+      <a href="?lang=id">Bahasa Indonesia</a>
+      <a href="?lang=fil">Filipino</a>
+    </div>
+
+    <div class="content">
+      <div class="version-info">
+        <strong id="version-label">App Version:</strong> <code>3.0.0</code>
+      </div>
+
+      <div class="section">
+        <h2 id="faq-title">Frequently Asked Questions</h2>
+
+        <div class="faq-item">
+          <h3 id="faq1-q">How do I reset my learning progress?</h3>
+          <p id="faq1-a">Go to Settings within the app and select "Reset Progress". Note that this action cannot be undone.</p>
+        </div>
+
+        <div class="faq-item">
+          <h3 id="faq2-q">The text-to-speech is not working properly</h3>
+          <p id="faq2-a">Make sure your device's text-to-speech settings are configured correctly. Go to Settings > Accessibility > Text-to-Speech on your device and ensure the Japanese voice is downloaded and enabled.</p>
+        </div>
+
+        <div class="faq-item">
+          <h3 id="faq3-q">How do I add custom vocabulary?</h3>
+          <p id="faq3-a">Use the "+" button in the Vocabulary section to add custom words. You can also import vocabulary lists from files using the import feature.</p>
+        </div>
+
+        <div class="faq-item">
+          <h3 id="faq4-q">The app crashes when opening</h3>
+          <p id="faq4-a">Try the following steps: 1) Restart your device, 2) Update to the latest app version from the store, 3) Clear the app cache in your device settings, 4) Reinstall the app if the issue persists.</p>
+        </div>
+
+        <div class="faq-item">
+          <h3 id="faq5-q">How do I export my vocabulary?</h3>
+          <p id="faq5-a">Go to Vocabulary > Settings (three dots menu) > Export. You can export as CSV or share directly to other apps.</p>
+        </div>
+
+        <div class="faq-item">
+          <h3 id="faq6-q">Why is the audio not playing?</h3>
+          <p id="faq6-a">Check that: 1) Your device volume is not muted, 2) The app has audio permissions, 3) Try closing other apps that may be using audio.</p>
+        </div>
+
+        <div class="faq-item">
+          <h3 id="faq7-q">Does the app work offline?</h3>
+          <p id="faq7-a">Yes, most features work offline. Text-to-speech requires an internet connection for the first download of voice data. Once downloaded, it works offline.</p>
+        </div>
+      </div>
+
+      <div class="section">
+        <h2 id="trouble-title">Troubleshooting</h2>
+        <p id="trouble-intro">If you're experiencing issues, try these steps in order:</p>
+        <ol style="margin-left: 20px; margin-bottom: 12px;">
+          <li id="trouble1" style="margin-bottom: 8px;"><strong>Restart the app</strong> - Close it completely and reopen</li>
+          <li id="trouble2" style="margin-bottom: 8px;"><strong>Restart your device</strong> - This clears temporary cache files</li>
+          <li id="trouble3" style="margin-bottom: 8px;"><strong>Update the app</strong> - Install the latest version from App Store or Google Play</li>
+          <li id="trouble4" style="margin-bottom: 8px;"><strong>Clear app cache</strong> - Go to Settings > Apps > Learn Japanese > Storage > Clear Cache</li>
+          <li id="trouble5"><strong>Reinstall the app</strong> - Uninstall and reinstall from your app store</li>
+        </ol>
+      </div>
+
+      <div class="section">
+        <h2 id="backup-title">Data Backup</h2>
+        <p id="backup1">Your learning progress is stored locally on your device. To prevent data loss:</p>
+        <ul style="margin-left: 20px; margin-bottom: 12px;">
+          <li id="backup-tip1">Regularly export your vocabulary using the export feature</li>
+          <li id="backup-tip2">Enable automatic backups in your device settings</li>
+          <li id="backup-tip3">Uninstalling the app will delete all local data</li>
+        </ul>
+        <p id="backup-note"><strong>Note:</strong> We do not have access to your local data. Please backup your progress regularly.</p>
+      </div>
+
+      <div class="section">
+        <h2 id="contact-title">Contact Support</h2>
+        <div class="contact-card">
+          <h3 id="contact-subtitle">Need Further Assistance?</h3>
+          <p id="contact-intro">If the FAQs above don't solve your issue, please contact us:</p>
+          <p><strong>Email:</strong> sagetsang@gmail.com</p>
+          <p id="contact-note" style="margin-top: 15px; font-size: 14px; color: #666;">
+            We aim to respond to all inquiries within 48 hours. Please include your device model and app version when contacting support.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <p><strong>Learn Japanese</strong></p>
+      <p>Version 3.0.0 | April 2026</p>
+    </div>
+  </div>
+
+  <script>
+    const translations = {
+      en: {},
+      'zh-Hans': {
+        'header-subtitle': '技术支持中心',
+        'lang-label': '语言：',
+        'version-label': '应用版本：',
+        'faq-title': '常见问题',
+        'faq1-q': '如何重置学习进度？',
+        'faq1-a': '进入应用内的"设置"，选择"重置进度"。请注意，此操作无法撤销。',
+        'faq2-q': '文本转语音无法正常工作',
+        'faq2-a': '请确保设备的文本转语音设置正确配置。进入设置 > 辅助功能 > 文本转语音，确保已下载并启用日语语音。',
+        'faq3-q': '如何添加自定义词汇？',
+        'faq3-a': '使用词汇部分中的"+"按钮添加自定义单词。您也可以使用导入功能从文件导入词汇列表。',
+        'faq4-q': '应用打开时崩溃',
+        'faq4-a': '请尝试以下步骤：1) 重启设备，2) 从应用商店更新到最新版本，3) 在设备设置中清除应用缓存，4) 如果问题仍然存在，请重新安装应用。',
+        'faq5-q': '如何导出词汇？',
+        'faq5-a': '进入词汇 > 设置（三个点菜单）> 导出。您可以导出为 CSV 或直接分享到其他应用。',
+        'faq6-q': '为什么音频无法播放？',
+        'faq6-a': '请检查：1) 设备音量是否静音，2) 应用是否有音频权限，3) 尝试关闭其他可能使用音频的应用。',
+        'faq7-q': '应用可以离线使用吗？',
+        'faq7-a': '是的，大多数功能可以离线使用。文本转语音首次下载语音数据时需要网络连接。下载完成后即可离线使用。',
+        'trouble-title': '故障排除',
+        'trouble-intro': '如果您遇到问题，请按顺序尝试以下步骤：',
+        'trouble1': '<strong>重启应用</strong> - 完全关闭后重新打开',
+        'trouble2': '<strong>重启设备</strong> - 这会清除临时缓存文件',
+        'trouble3': '<strong>更新应用</strong> - 从 App Store 或 Google Play 安装最新版本',
+        'trouble4': '<strong>清除应用缓存</strong> - 进入设置 > 应用 > Learn Japanese > 存储 > 清除缓存',
+        'trouble5': '<strong>重新安装应用</strong> - 从应用商店卸载并重新安装',
+        'backup-title': '数据备份',
+        'backup1': '您的学习进度存储在设备本地。为防止数据丢失：',
+        'backup-tip1': '定期使用导出功能导出您的词汇',
+        'backup-tip2': '在设备设置中启用自动备份',
+        'backup-tip3': '卸载应用将删除所有本地数据',
+        'backup-note': '<strong>注意：</strong>我们无法访问您的本地数据。请定期备份您的进度。',
+        'contact-title': '联系支持',
+        'contact-subtitle': '需要更多帮助？',
+        'contact-intro': '如果以上常见问题无法解决您的问题，请联系我们：',
+        'contact-note': '我们会在48小时内回复所有咨询。联系时请提供您的设备型号和应用版本。'
+      },
+      'zh-Hant': {
+        'header-subtitle': '技術支援中心',
+        'lang-label': '語言：',
+        'version-label': '應用版本：',
+        'faq-title': '常見問題',
+        'faq1-q': '如何重置學習進度？',
+        'faq1-a': '進入應用內的「設定」，選擇「重置進度」。請注意，此操作無法撤銷。',
+        'faq2-q': '文字轉語音無法正常運作',
+        'faq2-a': '請確保裝置的文字轉語音設定正確配置。進入設定 > 輔助功能 > 文字轉語音，確保已下載並啟用日語語音。',
+        'faq3-q': '如何新增自訂詞彙？',
+        'faq3-a': '使用詞彙部分中的「+」按鈕新增自訂單詞。您也可以使用匯入功能從檔案匯入詞彙列表。',
+        'faq4-q': '應用程式開啟時當機',
+        'faq4-a': '請嘗試以下步驟：1) 重新啟動裝置，2) 從應用商店更新到最新版本，3) 在裝置設定中清除應用程式快取，4) 如果問題仍然存在，請重新安裝應用程式。',
+        'faq5-q': '如何匯出詞彙？',
+        'faq5-a': '進入詞彙 > 設定（三個點選單）> 匯出。您可以匯出為 CSV 或直接分享到其他應用程式。',
+        'faq6-q': '為什麼音訊無法播放？',
+        'faq6-a': '請檢查：1) 裝置音量是否靜音，2) 應用程式是否有音訊權限，3) 嘗試關閉其他可能使用音訊的應用程式。',
+        'faq7-q': '應用程式可以離線使用嗎？',
+        'faq7-a': '是的，大多數功能可以離線使用。文字轉語音首次下載語音資料時需要網路連線。下載完成後即可離線使用。',
+        'trouble-title': '故障排除',
+        'trouble-intro': '如果您遇到問題，請按順序嘗試以下步驟：',
+        'trouble1': '<strong>重新啟動應用程式</strong> - 完全關閉後重新開啟',
+        'trouble2': '<strong>重新啟動裝置</strong> - 這會清除暫存快取檔案',
+        'trouble3': '<strong>更新應用程式</strong> - 從 App Store 或 Google Play 安裝最新版本',
+        'trouble4': '<strong>清除應用程式快取</strong> - 進入設定 > 應用程式 > Learn Japanese > 儲存空間 > 清除快取',
+        'trouble5': '<strong>重新安裝應用程式</strong> - 從應用商店解除安裝並重新安裝',
+        'backup-title': '資料備份',
+        'backup1': '您的學習進度儲存在裝置本地。為防止資料遺失：',
+        'backup-tip1': '定期使用匯出功能匯出您的詞彙',
+        'backup-tip2': '在裝置設定中啟用自動備份',
+        'backup-tip3': '解除安裝應用程式將刪除所有本地資料',
+        'backup-note': '<strong>注意：</strong>我們無法存取您的本地資料。請定期備份您的進度。',
+        'contact-title': '聯絡支援',
+        'contact-subtitle': '需要更多幫助？',
+        'contact-intro': '如果以上常見問題無法解決您的問題，請聯絡我們：',
+        'contact-note': '我們會在48小時內回覆所有諮詢。聯絡時請提供您的裝置型號和應用程式版本。'
+      },
+      ja: {
+        'header-subtitle': 'テクニカルサポートセンター',
+        'lang-label': '言語：',
+        'version-label': 'アプリバージョン：',
+        'faq-title': 'よくある質問',
+        'faq1-q': '学習進捗をリセットするには？',
+        'faq1-a': 'アプリ内の「設定」に移動し、「進捗をリセット」を選択してください。この操作は元に戻せません。',
+        'faq2-q': '音声読み上げが正常に動作しません',
+        'faq2-a': 'デバイスの音声読み上げ設定が正しく構成されていることを確認してください。設定 > アクセシビリティ > 音声読み上げに移動し、日本語音声がダウンロードされ、有効になっていることを確認してください。',
+        'faq3-q': 'カスタム単語を追加するには？',
+        'faq3-a': '語彙セクションの「+」ボタンを使用してカスタム単語を追加できます。インポート機能を使用してファイルから語彙リストをインポートすることもできます。',
+        'faq4-q': 'アプリを開くとクラッシュする',
+        'faq4-a': '次の手順を試してください：1) デバイスを再起動、2) ストアから最新バージョンに更新、3) デバイス設定でアプリキャッシュをクリア、4) 問題が続く場合はアプリを再インストール',
+        'faq5-q': '語彙をエクスポートするには？',
+        'faq5-a': '語彙 > 設定（三点メニュー）> エクスポートに移動してください。CSVとしてエクスポートするか、他のアプリに直接共有できます。',
+        'faq6-q': 'なぜオーディオが再生されないのですか？',
+        'faq6-a': '確認してください：1) デバイスの音量音がミュートされていないか、2) アプリがオーディオ権限を持っているか、3) オーディオを使用している可能性のある他のアプリを閉じてみてください',
+        'faq7-q': 'アプリは無オフラインで動作しますか？',
+        'faq7-a': 'はい、ほとんど機能はオフラインで動作します。音声読み上げは、音声データの初回ダウンロード時にインターネット接続が必要です。ダウンロード完了後はオフラインで動作します。',
+        'trouble-title': 'トラブルシューティング',
+        'trouble-intro': '問題が発生した場合は、以下の手順を順番に試してください：',
+        'trouble1': '<strong>アプリを再起動</strong> - 完全閉じてから再度開く',
+        'trouble2': '<strong>デバイスを再起動</strong> - 一時的なキャッシュファイルがクリアされます',
+        'trouble3': '<strong>アプリを更新</strong> - App StoreまたはGoogle Playから最新バージョンをインストール',
+        'trouble4': '<strong>アプリキャッシュをクリア</strong> - 設定 > アプリ > Learn Japanese > ストレージ > キャッシュをクリア',
+        'trouble5': '<strong>アプリを再インストール</strong> - ストアからアンインストールして再インストール',
+        'backup-title': 'データバックアップ',
+        'backup1': '学習進捗はデバイスにローカル保存されています。データ損失を防ぐために：',
+        'backup-tip1': 'エクスポート機能を使用して定期的に語彙をエクスポートしてください',
+        'backup-tip2': 'デバイス設定で自動バックアップを有効にしてください',
+        'backup-tip3': 'アプリをアンインストールするとすべてのローカルデータが削除されます',
+        'backup-note': '<strong>注意：</strong>あなたのローカルデータにアクセスすることはできません。定期的に進捗をバックアップしてください。',
+        'contact-title': 'サポートに連絡',
+        'contact-subtitle': 'さらにヘルプが必要ですか？',
+        'contact-intro': '上記の問題で解決しない場合は、お問い合わせください：',
+        'contact-note': 'すべてのお問い合わせには48時間以内にお答えします。サポートに連絡する際には、デバイスのモデルとアプリバージョンを含めてください。'
+      },
+      ko: {
+        'header-subtitle': '기술 지원 센터',
+        'lang-label': '언어:',
+        'version-label': '앱 버전:',
+        'faq-title': '자주 묻는 질문',
+        'faq1-q': '학습 진행 상황을 재설정하려면 어떻게 해야 하나요?',
+        'faq1-a': '앱 내 "설정"으로 이동하여 "진행 상황 재설정"을 선택하세요. 이 작업은 취소할 수 없습니다.',
+        'faq2-q': '텍스트 음성 변환이 제대로 작동하지 않습니다',
+        'faq2-a': '장치의 텍스트 음성 변환 설정이 올바르게 구성되어 있는지 확인하세요. 설정 > 접근성 > 텍스트 음성 변환으로 이동하여 일본어 음성이 다운로드되고 활성화되어 있는지 확인하세요.',
+        'faq3-q': '사용자 정의 어휘를 추가하려면 어떻게 해야 하나요?',
+        'faq3-a': '어휘 섹션의 "+" 버튼을 사용하여 사용자 정의 단어를 추가할 수 있습니다. 가져오기 기능을 사용하여 파일에서 어휘 목록을 가져올 수도 있습니다.',
+        'faq4-q': '앱을 열면 충돌합니다',
+        'faq4-a': '다음 단계를 시도해 보세요: 1) 장치 재시작, 2) 스토어에서 최신 버전으로 업데이트, 3) 장치 설정에서 앱 캐시 지우기, 4) 문제가 지속되면 앱 재설치',
+        'faq5-q': '어휘를 내보내려면 어떻게 해야 하나요?',
+        'faq5-a': '어휘 > 설정(세 점 메뉴) > 내보내기로 이동하세요. CSV로 내보내거나 다른 앱으로 직접 공유할 수 있습니다.',
+        'faq6-q': '오디오가 재생되지 않는 이유는 무엇인가요?',
+        'faq6-a': '확인하세요: 1) 장치 볼륨이 음소거되지 않았는지, 2) 앱에 오디오 권한이 있는지, 3) 오디오를 사용할 수 있는 다른 앱을 닫아보세요',
+        'faq7-q': '앱은 오프라인으로 작동하나요?',
+        'faq7-a': '네, 대부분의 기능은 오프라인에서 작동합니다. 텍스트 음성 변환은 음성 데이터 최초 다운로드 시 인터넷 연결이 필요합니다. 다운로드가 완료되면 오프라인에서 작동합니다.',
+        'trouble-title': '문제 해결',
+        'trouble-intro': '문제가 발생하면 다음 단계를 순서대로 시도해 보세요:',
+        'trouble1': '<strong>앱 재시작</strong> - 완전히 닫았다가 다시 열기',
+        'trouble2': '<strong>장치 재시작</strong> - 임시 캐시 파일이 지워집니다',
+        'trouble3': '<strong>앱 업데이트</strong> - App Store 또는 Google Play에서 최신 버전 설치',
+        'trouble4': '<strong>앱 캐시 지우기</strong> - 설정 > 앱 > Learn Japanese > 저장소 > 캐시 지우기',
+        'trouble5': '<strong>앱 재설치</strong> - 스토어에서 언설치 후 재설치',
+        'backup-title': '데이터 백업',
+        'backup1': '학습 진행 상황은 장치에 로컬로 저장됩니다. 데이터 손실을 방지하려면:',
+        'backup-tip1': '내보내기 기능을 사용하여 주기적으로 어휘를 내보내세요',
+        'backup-tip2': '장치 설정에서 자동 백업을 활성화하세요',
+        'backup-tip3': '앱을 언설치하면 모든 로컬 데이터가 삭제됩니다',
+        'backup-note': '<strong>참고:</strong> 로컬 데이터에 접근할 수 없습니다. 정기적으로 진행 상황을 백업하세요.',
+        'contact-title': '지원 문의',
+        'contact-subtitle': '추가 도움이 필요하신가요?',
+        'contact-intro': '위 FAQ로 문제가 해결되지 않으면 문의하세요:',
+        'contact-note': '모든 문의에 48시간 내에 답변드릴 것을 목표로 합니다. 문의 시 장치 모델과 앱 버전을 포함해 주세요.'
+      },
+      es: {
+        'header-subtitle': 'Centro de Soporte Técnico',
+        'lang-label': 'Idioma:',
+        'version-label': 'Versión de la App:',
+        'faq-title': 'Preguntas Frecuentes',
+        'faq1-q': '¿Cómo reinicio mi progreso de aprendizaje?',
+        'faq1-a': 'Ve a Ajustes dentro de la app y selecciona "Reiniciar Progreso". Ten en cuenta que esta acción no se puede deshacer.',
+        'faq2-q': 'La conversión de texto a voz no funciona correctamente',
+        'faq2-a': 'Asegúrate de que la configuración de texto a voz de tu dispositivo esté correctamente configurada. Ve a Ajustes > Accesibilidad > Texto a Voz y asegúrate de que la voz en japonés esté descargada y activada.',
+        'faq3-q': '¿Cómo agrego vocabulario personalizado?',
+        'faq3-a': 'Usa el botón "+" en la sección de Vocabulario para agregar palabras personalizadas. También puedes importar listas de vocabulario desde archivos usando la función de importación.',
+        'faq4-q': 'La app se cierra al abrir',
+        'faq4-a': 'Prueba los siguientes pasos: 1) Reinicia tu dispositivo, 2) Actualiza a la última versión desde la tienda, 3) Borra la caché de la app en los ajustes del dispositivo, 4) Reinstala la app si el problema persiste.',
+        'faq5-q': '¿Cómo exporto mi vocabulario?',
+        'faq5-a': 'Ve a Vocabulario > Ajustes (menú de tres puntos) > Exportar. Puedes exportar como CSV o compartir directamente a otras apps.',
+        'faq6-q': '¿Por qué no se reproduce el audio?',
+        'faq6-a': 'Verifica que: 1) El volumen de tu dispositivo no esté silenciado, 2) La app tenga permisos de audio, 3) Intenta cerrar otras apps que puedan estar usando audio.',
+        'faq7-q': '¿La app funciona sin conexión?',
+        'faq7-a': 'Sí, la mayoría de funciones trabajan sin conexión. La conversión de texto a voz requiere conexión a internet para la primera descarga de datos de voz. Una vez descargado, funciona sin conexión.',
+        'trouble-title': 'Solución de Problemas',
+        'trouble-intro': 'Si estás experimentando problemas, prueba estos pasos en orden:',
+        'trouble1': '<strong>Reinicia la app</strong> - Ciérrala completamente y vuélvela a abrir',
+        'trouble2': '<strong>Reinicia tu dispositivo</strong> - Esto borra archivos de caché temporales',
+        'trouble3': '<strong>Actualiza la app</strong> - Instala la última versión desde App Store o Google Play',
+        'trouble4': '<strong>Borra la caché de la app</strong> - Ve a Ajustes > Apps > Learn Japanese > Almacenamiento > Borrar Caché',
+        'trouble5': '<strong>Reinstala la app</strong> - Desinstala y reinstala desde la tienda de apps',
+        'backup-title': 'Copia de Seguridad',
+        'backup1': 'Tu progreso de aprendizaje se almacena localmente en tu dispositivo. Para prevenir pérdida de datos:',
+        'backup-tip1': 'Exporta regularmente tu vocabulario usando la función de exportar',
+        'backup-tip2': 'Activa las copias de seguridad automáticas en los ajustes de tu dispositivo',
+        'backup-tip3': 'Desinstalar la app eliminará todos los datos locales',
+        'backup-note': '<strong>Nota:</strong> No tenemos acceso a tus datos locales. Por favor, haz copias de seguridad de tu progreso regularmente.',
+        'contact-title': 'Contactar Soporte',
+        'contact-subtitle': '¿Necesitas Más Ayuda?',
+        'contact-intro': 'Si las FAQs de arriba no resuelven tu problema, por favor contáctanos:',
+        'contact-note': 'Nuestro objetivo es responder a todas las consultas en 48 horas. Por favor, incluye el modelo de tu dispositivo y la versión de la app al contactar soporte.'
+      },
+      fr: {
+        'header-subtitle': 'Centre de Support Technique',
+        'lang-label': 'Langue:',
+        'version-label': 'Version de l\'App:',
+        'faq-title': 'Questions Fréquentes',
+        'faq1-q': 'Comment réinitialiser ma progression d\'apprentissage?',
+        'faq1-a': 'Allez dans Paramètres dans l\'app et sélectionnez "Réinitialiser la Progression". Notez que cette action ne peut pas être annulée.',
+        'faq2-q': 'La synthèse vocale ne fonctionne pas correctement',
+        'faq2-a': 'Assurez-vous que les paramètres de synthèse vocale de votre appareil sont correctement configurés. Allez dans Paramètres > Accessibilité > Synthèse vocale et assurez-vous que la voix japonaise est téléchargée et activée.',
+        'faq3-q': 'Comment ajouter du vocabulaire personnalisé?',
+        'faq3-a': 'Utilisez le bouton "+" dans la section Vocabulaire pour ajouter des mots personnalisés. Vous pouvez également importer des listes de vocabulaire depuis des fichiers en utilisant la fonction d\'importation.',
+        'faq4-q': 'L\'app se ferme lorsqu\'elle s\'ouvre',
+        'faq4-a': 'Essayez les étapes suivantes: 1) Redémarrez votre appareil, 2) Mettez à jour vers la dernière version depuis le store, 3) Effacez le cache de l\'app dans les paramètres de l\'appareil, 4) Réinstallez l\'app si le problème persiste.',
+        'faq5-q': 'Comment exporter mon vocabulaire?',
+        'faq5-a': 'Allez dans Vocabulaire > Paramètres (menu trois points) > Exporter. Vous pouvez exporter en CSV ou partager directement vers d\'autres apps.',
+        'faq6-q': 'Pourquoi l\'audio ne fonctionne-t-il pas?',
+        'faq6-a': 'Vérifiez que: 1) Le volume de votre appareil n\'est pas mis en sourdine, 2) L\'app a les permissions audio, 3) Essayez de fermer d\'autres apps qui pourraient utiliser l\'audio.',
+        'faq7-q': 'L\'app fonctionne-t-elle hors ligne?',
+        'faq7-a': 'Oui, la plupart des fonctionnalités fonctionnent hors ligne. La synthèse vocale nécessite une connexion internet pour le premier téléchargement des données vocales. Une fois téléchargé, cela fonctionne hors ligne.',
+        'trouble-title': 'Dépannage',
+        'trouble-intro': 'Si vous rencontrez des problèmes, essayez ces étapes dans l\'ordre:',
+        'trouble1': '<strong>Redémarrez l\'app</strong> - Fermez-la complètement et rouvrez-la',
+        'trouble2': '<strong>Redémarrez votre appareil</strong> - Cela efface les fichiers cache temporaires',
+        'trouble3': '<strong>Mettez à jour l\'app</strong> - Installez la dernière version depuis l\'App Store ou Google Play',
+        'trouble4': '<strong>Effacez le cache de l\'app</strong> - Allez dans Paramètres > Apps > Learn Japanese > Stockage > Effacer le Cache',
+        'trouble5': '<strong>Réinstallez l\'app</strong> - Désinstallez et réinstallez depuis le store',
+        'backup-title': 'Sauvegarde des Données',
+        'backup1': 'Votre progression d\'apprentissage est stockée localement sur votre appareil. Pour prévenir la perte de données:',
+        'backup-tip1': 'Exportez régulièrement votre vocabulaire en utilisant la fonction d\'exportation',
+        'backup-tip2': 'Activez les sauvegardes automatiques dans les paramètres de votre appareil',
+        'backup-tip3': 'Désinstaller l\'app supprimera toutes les données locales',
+        'backup-note': '<strong>Note:</strong> Nous n\'avons pas accès à vos données locales. Veuillez sauvegarder régulièrement votre progression.',
+        'contact-title': 'Contacter le Support',
+        'contact-subtitle': 'Besoin d\'Aide Supplémentaire?',
+        'contact-intro': 'Si les FAQ ci-dessus ne résolvent pas votre problème, veuillez nous contacter:',
+        'contact-note': 'Notre objectif est de répondre à toutes les demandes sous 48 heures. Veuillez inclure le modèle de votre appareil et la version de l\'app lorsque vous contactez le support.'
+      },
+      pt: {
+        'header-subtitle': 'Centro de Suporte Técnico',
+        'lang-label': 'Idioma:',
+        'version-label': 'Versão do App:',
+        'faq-title': 'Perguntas Frequentes',
+        'faq1-q': 'Como redefinir meu progresso de aprendizado?',
+        'faq1-a': 'Vá para Configurações dentro do app e selecione "Redefinir Progresso". Observe que esta ação não pode ser desfeita.',
+        'faq2-q': 'A conversão de texto em fala não está funcionando corretamente',
+        'faq2-a': 'Certifique-se de que as configurações de texto em fala do seu dispositivo estejam corretamente configuradas. Vá para Configurações > Acessibilidade > Texto em Fala e certifique-se de que a voz em japonês esteja baixada e ativada.',
+        'faq3-q': 'Como adicionar vocabulário personalizado?',
+        'faq3-a': 'Use o botão "+" na seção Vocabulário para adicionar palavras personalizadas. Você também pode importar listas de vocabulário de arquivos usando a função de importação.',
+        'faq4-q': 'O app trava ao abrir',
+        'faq4-a': 'Tente as seguintes etapas: 1) Reinicie seu dispositivo, 2) Atualize para a versão mais recente da loja, 3) Limpe o cache do app nas configurações do dispositivo, 4) Reinstale o app se o problema persistir.',
+        'faq5-q': 'Como exportar meu vocabulário?',
+        'faq5-a': 'Vá para Vocabulário > Configurações (menu de três pontos) > Exportar. Você pode exportar como CSV ou compartilhar diretamente com outros apps.',
+        'faq6-q': 'Por que o áudio não está reproduzindo?',
+        'faq6-a': 'Verifique se: 1) O volume do seu dispositivo não está mudo, 2) O app tem permissões de áudio, 3) Tente fechar outros apps que possam estar usando áudio.',
+        'faq7-q': 'O app funciona offline?',
+        'faq7-a': 'Sim, a maioria dos recursos funciona offline. A conversão de texto em fala requer uma conexão com a internet para o primeiro download dos dados de voz. Uma vez baixado, funciona offline.',
+        'trouble-title': 'Solução de Problemas',
+        'trouble-intro': 'Se você estiver enfrentando problemas, tente estas etapas em ordem:',
+        'trouble1': '<strong>Reinicie o app</strong> - Feche-o completamente e reabra',
+        'trouble2': '<strong>Reinicie seu dispositivo</strong> - Isso limpa arquivos de cache temporários',
+        'trouble3': '<strong>Atualize o app</strong> - Instale a versão mais recente da App Store ou Google Play',
+        'trouble4': '<strong>Limpe o cache do app</strong> - Vá para Configurações > Apps > Learn Japanese > Armazenamento > Limpar Cache',
+        'trouble5': '<strong>Reinstale o app</strong> - Desinstale e reinstale da loja de apps',
+        'backup-title': 'Backup de Dados',
+        'backup1': 'Seu progresso de aprendizado é armazenado localmente no seu dispositivo. Para prevenir perda de dados:',
+        'backup-tip1': 'Exporte regularmente seu vocabulário usando a função de exportar',
+        'backup-tip2': 'Ative backups automáticos nas configurações do seu dispositivo',
+        'backup-tip3': 'Desinstalar o app excluirá todos os dados locais',
+        'backup-note': '<strong>Nota:</strong> Não temos acesso aos seus dados locais. Por favor, faça backup do seu progresso regularmente.',
+        'contact-title': 'Contatar Suporte',
+        'contact-subtitle': 'Precisa de Mais Ajuda?',
+        'contact-intro': 'Se as Perguntas Frequentes acima não resolverem seu problema, entre em contato conosco:',
+        'contact-note': 'Nosso objetivo é responder a todas as perguntas em até 48 horas. Por favor, inclua o modelo do seu dispositivo e a versão do app ao contatar o suporte.'
+      },
+      th: {
+        'header-subtitle': 'ศูนย์ช่วยเหลือด้านเทคนิค',
+        'lang-label': 'ภาษา:',
+        'version-label': 'เวอร์ชันแอป:',
+        'faq-title': 'คำถามที่พบบ่อย',
+        'faq1-q': 'วิธีรีเซ็ตความก้าวหน้าในการเรียนรู้',
+        'faq1-a': 'ไปที่การตั้งค่าในแอปและเลือก "รีเซ็ตความก้าวหน้า" โปรดทราบว่าการดำเนินการนี้ไม่สามารถเลิกทำได้',
+        'faq2-q': 'การแปลงข้อความเป็นคำพูดไม่ทำงานอย่างถูกต้อง',
+        'faq2-a': 'ตรวจสอบให้แน่ใจว่าการตั้งค่าการแปลงข้อความเป็นคำพูดของอุปกรณ์ของคุณได้รับการกำหนดค่าอย่างถูกต้อง ไปที่การตั้งค่า > การช่วยเข้าถึง > การแปลงข้อความเป็นคำพูด และตรวจสอบให้แน่ใจว่าเสียงภาษาญี่ปุ่นได้รับการดาวน์โหลดและเปิดใช้งานแล้ว',
+        'faq3-q': 'วิธีเพิ่มคำศัพท์ที่กำหนดเอง',
+        'faq3-a': 'ใช้ปุ่ม "+" ในส่วนคำศัพท์เพื่อเพิ่มคำที่กำหนดเอง คุณยังสามารถนำเข้ารายการคำศัพท์จากไฟล์โดยใช้ฟังก์ชันนำเข้า',
+        'faq4-q': 'แอปขัดข้องเมื่อเปิด',
+        'faq4-a': 'ลองทำตามขั้นตอนเหล่านี้: 1) รีสตาร์ทอุปกรณ์ของคุณ 2) อัปเดตเป็นเวอร์ชันล่าสุดจากร้านค้า 3) ล้างแคชของแอปในการตั้งค่าอุปกรณ์ 4) ติดตั้งแอปใหม่หากปัญหายังคงอยู่',
+        'faq5-q': 'วิธีส่งออกคำศัพท์ของฉัน',
+        'faq5-a': 'ไปที่คำศัพท์ > การตั้งค่า (เมนูสามจุด) > ส่งออก คุณสามารถส่งออกเป็น CSV หรือแชร์โดยตรงไปยังแอปอื่น',
+        'faq6-q': 'ทำไมเสียงไม่เล่น',
+        'faq6-a': 'ตรวจสอบว่า: 1) ระดับเสียงของอุปกรณ์ไม่ได้ปิดเสียง 2) แอปมีสิทธิ์เสียง 3) ลองปิดแอปอื่นที่อาจใช้เสียง',
+        'faq7-q': 'แอปทำงานแบบออฟไลน์ได้หรือไม่',
+        'faq7-a': 'ใช่ คุณสมบัติส่วนใหญ่ทำงานแบบออฟไลน์ การแปลงข้อความเป็นคำพูดต้องการการเชื่อมต่ออินเทอร์เน็ตสำหรับการดาวน์โหลดข้อมูลเสียงครั้งแรก เมื่อดาวน์โหลดแล้ว จะทำงานแบบออฟไลน์',
+        'trouble-title': 'การแก้ไขปัญหา',
+        'trouble-intro': 'หากคุณประสบปัญหา ให้ลองทำตามขั้นตอนเหล่านี้ตามลำดับ:',
+        'trouble1': '<strong>รีสตาร์ทแอป</strong> - ปิดให้สนิทแล้วเปิดใหม่',
+        'trouble2': '<strong>รีสตาร์ทอุปกรณ์ของคุณ</strong> - สิ่งนี้จะล้างไฟล์แคชชั่วคราว',
+        'trouble3': '<strong>อัปเดตแอป</strong> - ติดตั้งเวอร์ชันล่าสุดจาก App Store หรือ Google Play',
+        'trouble4': '<strong>ล้างแคชของแอป</strong> - ไปที่การตั้งค่า > แอป > Learn Japanese > พื้นที่เก็บข้อมูล > ล้างแคช',
+        'trouble5': '<strong>ติดตั้งแอปใหม่</strong> - ถอนการติดตั้งและติดตั้งใหม่จากร้านค้าแอป',
+        'backup-title': 'การสำรองข้อมูล',
+        'backup1': 'ความก้าวหน้าในการเรียนรู้ของคุณจะถูกจัดเก็บไว้ในอุปกรณ์ของคุณ เพื่อป้องกันการสูญหายของข้อมูล:',
+        'backup-tip1': 'ส่งออกคำศัพท์ของคุณเป็นประจำโดยใช้ฟังก์ชันส่งออก',
+        'backup-tip2': 'เปิดใช้งานการสำรองข้อมูลอัตโนมัติในการตั้งค่าอุปกรณ์ของคุณ',
+        'backup-tip3': 'การถอนการติดตั้งแอปจะลบข้อมูลท้องถิ่นทั้งหมด',
+        'backup-note': '<strong>หมายเหตุ:</strong> เราไม่สามารถเข้าถึงข้อมูลท้องถิ่นของคุณได้ โปรดสำรองข้อมูลความก้าวหน้าของคุณเป็นประจำ',
+        'contact-title': 'ติดต่อฝ่ายสนับสนุน',
+        'contact-subtitle': 'ต้องการความช่วยเหลือเพิ่มเติมหรือไม่',
+        'contact-intro': 'หากคำถามที่พบบ่อยข้างต้นไม่สามารถแก้ปัญหาของคุณได้ โปรดติดต่อเรา:',
+        'contact-note': 'เรามุ่งมั่นที่จะตอบกลับทุกคำถามภายใน 48 ชั่วโมง โปรดระบุรุ่นอุปกรณ์และเวอร์ชันแอปของคุณเมื่อติดต่อฝ่ายสนับสนุน'
+      },
+      id: {
+        'header-subtitle': 'Pusat Dukungan Teknis',
+        'lang-label': 'Bahasa:',
+        'version-label': 'Versi Aplikasi:',
+        'faq-title': 'Pertanyaan yang Sering Diajukan',
+        'faq1-q': 'Bagaimana cara mereset kemajuan belajar saya?',
+        'faq1-a': 'Buka Pengaturan dalam aplikasi dan pilih "Reset Kemajuan". Perhatikan bahwa tindakan ini tidak dapat dibatalkan.',
+        'faq2-q': 'Konversi teks ke ucapan tidak berfungsi dengan benar',
+        'faq2-a': 'Pastikan pengaturan teks ke ucapan perangkat Anda dikonfigurasi dengan benar. Buka Pengaturan > Aksesibilitas > Teks ke Ucapan dan pastikan suara Jepang diunduh dan diaktifkan.',
+        'faq3-q': 'Bagaimana cara menambahkan kosakata kustom?',
+        'faq3-a': 'Gunakan tombol "+" di bagian Kosakata untuk menambahkan kata kustom. Anda juga dapat mengimpor daftar kosakata dari file menggunakan fitur impor.',
+        'faq4-q': 'Aplikasi mogok saat dibuka',
+        'faq4-a': 'Coba langkah-langkah berikut: 1) Mulai ulang perangkat Anda, 2) Perbarui ke versi terbaru dari toko, 3) Hapus cache aplikasi di pengaturan perangkat, 4) Instal ulang aplikasi jika masalah berlanjut.',
+        'faq5-q': 'Bagaimana cara mengekspor kosakata saya?',
+        'faq5-a': 'Buka Kosakata > Pengaturan (menu tiga titik) > Ekspor. Anda dapat mengekspor sebagai CSV atau berbagi langsung ke aplikasi lain.',
+        'faq6-q': 'Mengapa audio tidak diputar?',
+        'faq6-a': 'Periksa bahwa: 1) Volume perangkat Anda tidak dibisukan, 2) Aplikasi memiliki izin audio, 3) Coba tutup aplikasi lain yang mungkin menggunakan audio.',
+        'faq7-q': 'Apakah aplikasi berfungsi offline?',
+        'faq7-a': 'Ya, sebagian besar fitur berfungsi offline. Teks ke ucapan membutuhkan koneksi internet untuk unduhan pertama data suara. Setelah diunduh, berfungsi offline.',
+        'trouble-title': 'Pemecahan Masalah',
+        'trouble-intro': 'Jika Anda mengalami masalah, coba langkah-langkah ini secara berurutan:',
+        'trouble1': '<strong>Mulai ulang aplikasi</strong> - Tutup sepenuhnya dan buka lagi',
+        'trouble2': '<strong>Mulai ulang perangkat Anda</strong> - Ini membersihkan file cache sementara',
+        'trouble3': '<strong>Perbarui aplikasi</strong> - Instal versi terbaru dari App Store atau Google Play',
+        'trouble4': '<strong>Hapus cache aplikasi</strong> - Buka Pengaturan > Aplikasi > Learn Japanese > Penyimpanan > Hapus Cache',
+        'trouble5': '<strong>Instal ulang aplikasi</strong> - Copot instalasi dan instal ulang dari toko aplikasi',
+        'backup-title': 'Cadangan Data',
+        'backup1': 'Kemajuan belajar Anda disimpan secara lokal di perangkat Anda. Untuk mencegah kehilangan data:',
+        'backup-tip1': 'Ekspor kosakata Anda secara teratur menggunakan fitur ekspor',
+        'backup-tip2': 'Aktifkan cadangan otomatis di pengaturan perangkat Anda',
+        'backup-tip3': 'Mencopot instalasi aplikasi akan menghapus semua data lokal',
+        'backup-note': '<strong>Catatan:</strong> Kami tidak memiliki akses ke data lokal Anda. Harap cadangkan kemajuan Anda secara teratur.',
+        'contact-title': 'Hubungi Dukungan',
+        'contact-subtitle': 'Butuh Bantuan Lebih Lanjut?',
+        'contact-intro': 'Jika FAQ di atas tidak menyelesaikan masalah Anda, silakan hubungi kami:',
+        'contact-note': 'Kami bertujuan untuk menanggapi semua pertanyaan dalam 48 jam. Harap sertakan model perangkat dan versi aplikasi Anda saat menghubungi dukungan.'
+      },
+      fil: {
+        'header-subtitle': 'Center ng Teknikal na Suporta',
+        'lang-label': 'Wika:',
+        'version-label': 'Bersyon ng App:',
+        'faq-title': 'Mga Madalas na Tanong',
+        'faq1-q': 'Paano ko i-reset ang aking pag-unlad sa pag-aaral?',
+        'faq1-a': 'Pumunta sa Mga Setting sa loob ng app at piliin ang "I-reset ang Pag-unlad". Tandaan na ang aksyon na ito ay hindi maaaring i-undo.',
+        'faq2-q': 'Hindi maayos ang pag-convert ng text sa speech',
+        'faq2-a': 'Tiyakin na ang mga setting ng text-to-speech ng iyong device ay wastong naka-configure. Pumunta sa Mga Setting > Accessibility > Text-to-Speech at tiyakin na ang Japanese voice ay naka-download at naka-enable.',
+        'faq3-q': 'Paano ako magdagdag ng custom na bokabularyo?',
+        'faq3-a': 'Gamitin ang button na "+" sa seksyon ng Bokabularyo para magdagdag ng custom na salita. Maaari ka ring mag-import ng mga listahan ng bokabularyo mula sa mga file gamit ang feature ng import.',
+        'faq4-q': 'Nagma-crash ang app kapag binubuksan',
+        'faq4-a': 'Subukan ang mga sumusunod na hakbang: 1) I-restart ang iyong device, 2) I-update sa pinakabagong bersyon mula sa store, 3) I-clear ang app cache sa mga setting ng device, 4) I-reinstall ang app kung persists ang problema.',
+        'faq5-q': 'Paano ko i-export ang aking bokabularyo?',
+        'faq5-a': 'Pumunta sa Bokabularyo > Mga Setting (menu ng tatlong tuldok) > I-export. Maaari mong i-export bilang CSV o i-share nang direkta sa ibang apps.',
+        'faq6-q': 'Bakit hindi nagpe-play ang audio?',
+        'faq6-a': 'Suriin na: 1) Ang volume ng iyong device ay hindi naka-mute, 2) Mayroon ang app ng audio permissions, 3) Subukang isara ang ibang apps na maaaring gumagamit ng audio.',
+        'faq7-q': 'Gumagana ba ang app offline?',
+        'faq7-a': 'Oo, karamihan sa mga feature ay gumagana offline. Ang text-to-speech ay nangangailangan ng internet connection para sa unang download ng voice data. Kapag na-download na, gumagana ito offline.',
+        'trouble-title': 'Pag-troubleshoot',
+        'trouble-intro': 'Kung nakakakita ka ng mga problema, subukan ang mga hakbang na ito sa pagkakasunud-sunod:',
+        'trouble1': '<strong>I-restart ang app</strong> - Isara ito nang ganap at buksan ulit',
+        'trouble2': '<strong>I-restart ang iyong device</strong> - Tinatanggal nito ang mga temporary cache file',
+        'trouble3': '<strong>I-update ang app</strong> - I-install ang pinakabagong bersyon mula sa App Store o Google Play',
+        'trouble4': '<strong>I-clear ang app cache</strong> - Pumunta sa Mga Setting > Apps > Learn Japanese > Storage > I-clear ang Cache',
+        'trouble5': '<strong>I-reinstall ang app</strong> - I-uninstall at i-install ulit mula sa app store',
+        'backup-title': 'Backup ng Data',
+        'backup1': 'Ang iyong pag-unlad sa pag-aaral ay naka-imbak nang lokal sa iyong device. Para maiwasan ang pagkawala ng data:',
+        'backup-tip1': 'Regular na i-export ang iyong bokabularyo gamit ang feature ng export',
+        'backup-tip2': 'I-enable ang automatic backups sa mga setting ng iyong device',
+        'backup-tip3': 'Ang pag-uninstall ng app ay magde-delete ng lahat ng local data',
+        'backup-note': '<strong>Tandaan:</strong> Wala kaming access sa iyong local data. Pakibackup ang iyong pag-unlad ng regular.',
+        'contact-title': 'Makipag-Contact sa Suporta',
+        'contact-subtitle': 'Kailangan ng Higit na Tulong?',
+        'contact-intro': 'Kung ang mga FAQ sa itaas ay hindi malulutas ang iyong problema, pakipag-contact sa amin:',
+        'contact-note': 'Nakatakda kaming tumugon sa lahat ng mga query sa loob ng 48 na oras. Pakisama ang model ng iyong device at bersyon ng app kapag nakikipag-contact sa soporte.'
+      }
+    };
+
+    function getLangFromUrl() {
+      const params = new URLSearchParams(window.location.search);
+      return params.get('lang');
+    }
+
+    function applyTranslations(lang) {
+      const t = translations[lang];
+      if (!t) return;
+
+      for (const [key, value] of Object.entries(t)) {
+        const el = document.getElementById(key);
+        if (el) {
+          el.innerHTML = value;
+        }
+      }
+
+      document.documentElement.lang = lang;
+    }
+
+    const lang = getLangFromUrl();
+    if (lang && translations[lang]) {
+      applyTranslations(lang);
+    }
+  </script>
+</body>
+</html>
